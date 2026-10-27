@@ -22,13 +22,17 @@ namespace MidtermExam.Prob02
         public string[] AS02_WebBrowserNavigation(string actions)
         {
             var browser = new StudentWebBrowser();
+            
+            
             // List นี้เก็บผลลัพธ์ของ parser เท่านั้น ประวัติการนำทางต้องเก็บด้วย Stack ในอีกคลาส
+
             var output = new List<string>();
             if (string.IsNullOrWhiteSpace(actions)) return output.ToArray();
 
             foreach (string part in actions.Split(';'))
             {
                 // แยกและเรียกคำสั่งให้แล้ว จึงไม่ต้องเขียนส่วนจัดการข้อความในคำตอบของนักศึกษา
+
                 string command = part.Trim();
                 if (command.StartsWith("open ", StringComparison.Ordinal))
                     browser.Open(command.Substring(5).Trim());
